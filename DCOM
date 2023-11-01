@@ -1,0 +1,198 @@
+[1/11, 10:36] LTCE Karan Vishwakarma: 1 import math
+
+2
+
+3 symbol_probs = { 4
+
+'M1': 1/2,
+
+5 'M2': 1/4,
+
+6 'M3': 1/8,
+
+7 'M4': 1/16,
+
+8 'MS': 1/32,
+
+9 'M6': 1/32
+
+10}
+
+12 # Sort symbols by probabilities in descending order
+
+13 sorted_symbols = sorted(symbol_probs.keys(), key=lambda x: -symbol_probs [x])
+
+15 def shannon_fano_encode(symbols):
+
+14
+
+16 if
+
+split len(symbols) // 2 left
+
+= shannon_fano_encode(symbols[:split]) =
+
+right shannon_fano_encode(symbols [split:])
+
+for s in left:
+
+left[s] = '0' + left[s]
+
+22
+
+len(symbols) == 1: return {symbols[0]: '0'}
+
+split = len(symbols) // 2
+
+left = shannon_fano_encode(symbols[:split])
+
+right = shannon_fano_encode(symbols [split:])
+
+for s in left:
+
+left[s] = '0' + left[s]
+
+right[s] '1' + right[s] H
+
+18
+
+for s in right:
+
+return {**left, **right}
+
+19
+
+22
+
+21
+
+23
+
+27 # Calculate entropy
+
+28 entropy = sum([-symbol_probs [s] * math.log2(symbol_probs [s]) for s in symbo
+
+38 # Shannon-Fano coding
+
+31 shannon_fano_code = shannon_fano_encode(sorted_symbols)
+
+33 print("Symbol Probabilities:")
+
+34 for symbol, prob in symbol_probs.items(): 35 print(f" (symbol): [prob:.6f]")
+
+Symbol
+
+32
+
+33 print("Symbol Probabilities:")
+
+34 for symbol, prob in symbol_probs.items():
+
+35 print(f" (symbol): (prob:.6f}")
+
+37 print("\nShannon-Fano Codes:")
+
+38 for symbol, code in shannon_fano_code.items():
+
+39 print(f" (symbol): {code}")
+
+40
+
+41 print("\nEntropy:", entropy)
+
+42
+
+36
+[1/11, 10:36] LTCE Karan Vishwakarma: IPython console
+
+Console 1/A *
+
+In [33]: runfile('/home/compu untitled12.py', wdir='/home/c Symbol Probabilities:
+
+M1: 0.500000
+
+M2: 0.250000
+
+M3: 0.125890
+
+M4: 0.062503
+
+M6: 0.031250
+
+Shannon-Fano Codes:
+
+M1: 000
+
+M2: 0100
+
+M3: 0110
+
+M4: 100
+
+Mỹ: 1100
+
+M6: 1110
+
+Entropy: 1.9375
+
+In [34]:
+[1/11, 10:37] LTCE Karan Vishwakarma: import heapq
+
+Python 3.11.3 (AMD64)] or
+
+Type "help",
+
+symbol: x1
+
+symbol: x
+
+symbol: X
+
+>>>
+
+}
+
+symbol: x
+
+symbol:
+
+heap [[weight, [symbol, ""]] for symbol, weight in probabilities.items())
+
+from collections import defaultdict
+
+def build_Huffman_Tree (probabilities):
+
+heapq.heapify (heap)
+
+while len (heap) > 1:
+
+lo heapq.heappop (heap)
+
+hi heapq.heappop (heap)
+
+for pair in hi[1:]: pair [1] 10'+pair [1]
+
+for pair in 10[1:]:
+
+heapq.heappush (heap, [10[0] + hi[0]] 10 [1:] hi(1:1)
+
+pair [1] 2+ pair [1]
+
+return sorted (heapq.heappop (heap) [1:], key lambda p: (len (p[-1]),p))
+
+probabilities = {
+
+x1': 0.4,
+
+'x2': 0.19,
+
+'x3': 0.16,
+
+' x4': 0.15,
+
+'x5': 0.10
+
+huffman tree build_Huffman Tree (probabilities)
+
+For symbol, code in hufman tree 
+Pint sy code
